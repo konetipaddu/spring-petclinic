@@ -1,0 +1,14 @@
+---
+pool:
+  name: default
+  VmImage: ubuntu-latest
+
+trigger:  
+  - main
+steps:
+  - task: maven@3
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      javaJDKVersion: 1.17
